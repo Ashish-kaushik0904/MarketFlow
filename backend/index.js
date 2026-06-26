@@ -12,7 +12,7 @@ const jwt = require("jsonwebtoken");
 
 const { HoldingModels } = require("./model/HoldingModels");
 const { PositionsModel } = require("./model/PositionsModel");
-const { UserModel } = require("./model/UserModel");
+const { UserModel } = require("./model/Usermodel");
 const { verifyToken } = require("./middleware/auth");
 
 const PORT = process.env.PORT || 3002;
