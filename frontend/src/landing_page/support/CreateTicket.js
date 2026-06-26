@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const topics = [
   {
@@ -69,14 +70,16 @@ function CreateTicket() {
   return (
     <div className="support-tickets">
       <h2>To create a ticket, select a relevant topic</h2>
+
       <div className="support-topics-grid">
         {topics.map((topic, index) => (
           <div className="support-topic-card" key={index}>
             <h4>{topic.title}</h4>
+
             <ul>
               {topic.links.map((link, i) => (
                 <li key={i}>
-                  <a href="#">{link}</a>
+                  <Link to="/support">{link}</Link>
                 </li>
               ))}
             </ul>
