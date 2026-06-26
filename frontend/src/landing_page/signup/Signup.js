@@ -17,7 +17,7 @@ function Signup() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3002/signup", {
+      const res = await axios.post("https://marketflow-backend-6wob.onrender.com/signup", {
         name,
         email,
         password,
