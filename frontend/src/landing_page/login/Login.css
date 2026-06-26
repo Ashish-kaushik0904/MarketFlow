@@ -1,0 +1,140 @@
+/* ===== LOGIN PAGE CSS ===== */
+/* Replace your Login.css with this */
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #f8f8f8;
+  padding: 20px;
+}
+
+.auth-box {
+  background: #fff;
+  padding: 48px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-logo {
+  width: 45px;
+  margin-bottom: 24px;
+}
+
+.auth-box h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.auth-subtitle {
+  font-size: 0.875rem;
+  color: #888;
+  margin-bottom: 32px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: #444;
+  margin-bottom: 6px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fafafa;
+  color: #222;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #387ed1;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(56, 126, 209, 0.12);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 13px;
+  background: #387ed1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.01em;
+}
+
+.auth-btn:hover:not(:disabled) {
+  background: #2d6bbf;
+  transform: translateY(-1px);
+}
+
+.auth-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-btn:disabled {
+  background: #a0bce0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.dots {
+  display: inline-block;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.auth-error {
+  background: #fff0f0;
+  color: #c62828;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+  border: 1px solid #ffcdd2;
+  text-align: left;
+}
+
+.auth-switch {
+  font-size: 0.875rem;
+  color: #888;
+  margin-top: 24px;
+}
+
+.auth-switch a {
+  color: #387ed1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
