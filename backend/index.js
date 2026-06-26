@@ -24,7 +24,8 @@ app.use(cors({
   origin: [
     "https://market-flow-8fxlw3a4x-ashish-kaushik0904s-projects.vercel.app",
     "https://marketflow-dashboard-ashish-kaushik0904s-projects.vercel.app"
-  ]
+  ],
+  credentials: true
 }));
 app.use(bodyParser.json());
 
