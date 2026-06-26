@@ -20,7 +20,12 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://market-flow-8fxlw3a4x-ashish-kaushik0904s-projects.vercel.app",
+    "https://marketflow-dashboard-ashish-kaushik0904s-projects.vercel.app"
+  ]
+}));
 app.use(bodyParser.json());
 
 // ─── AUTH ROUTES ────────────────────────────────────────────

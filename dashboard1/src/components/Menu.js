@@ -40,7 +40,7 @@ const Menu = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("darkMode");
     document.body.classList.remove("dark");
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "https://market-flow-8fxlw3a4x-ashish-kaushik0904s-projects.vercel.app/login";
   };
 
   const menuClass = "menu";

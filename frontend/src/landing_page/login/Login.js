@@ -24,7 +24,7 @@ function Login() {
       const user = encodeURIComponent(JSON.stringify(res.data.user));
 
       window.location.assign(
-        `http://localhost:3001?token=${token}&user=${user}`
+        `https://marketflow-dashboard-ashish-kaushik0904s-projects.vercel.app?token=${token}&user=${user}`
       );
     } catch (err) {
       setError(err.response?.data?.message || "Invalid email or password");

@@ -19,7 +19,7 @@ const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    document.location.href = "http://localhost:3000/login";
+    document.location.href = "https://market-flow-8fxlw3a4x-ashish-kaushik0904s-projects.vercel.app/login";
     return null;
   }
 
