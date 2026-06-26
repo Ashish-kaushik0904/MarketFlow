@@ -21,11 +21,9 @@ const uri = process.env.MONGO_URL;
 const app = express();
 
 app.use(cors({
-  origin: [
-    "https://market-flow-8fxlw3a4x-ashish-kaushik0904s-projects.vercel.app",
-    "https://marketflow-dashboard-ashish-kaushik0904s-projects.vercel.app"
-  ],
-  credentials: true
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "authorization"]
 }));
 app.use(bodyParser.json());
 
