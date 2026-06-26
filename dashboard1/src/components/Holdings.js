@@ -9,7 +9,7 @@ const Holdings = () => {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:3002/allHoldings", {
+      .get("https://marketflow-backend-6wob.onrender.com/allHoldings", {
         headers: { authorization: token },
       })
       .then((res) => {
