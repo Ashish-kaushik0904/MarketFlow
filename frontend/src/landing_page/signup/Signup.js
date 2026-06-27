@@ -22,7 +22,7 @@ function Signup() {
     setLoading(true);
 
     try {
-      const res = await axios.post(`${BACKEND_URL}/signup`, {
+      await axios.post(`${BACKEND_URL}/signup`, {
         name,
         email,
         password,
