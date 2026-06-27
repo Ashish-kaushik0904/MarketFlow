@@ -12,6 +12,11 @@ body {
   color: #222;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ===== NAVBAR ===== */
 .mf-navbar {
   width: 100%;
@@ -40,9 +45,7 @@ body {
   text-decoration: none;
 }
 
-.mf-logo-icon {
-  font-size: 22px;
-}
+.mf-logo-icon { font-size: 22px; }
 
 .mf-logo-text {
   font-size: 1.2rem;
@@ -73,7 +76,6 @@ body {
   color: #1a56db;
 }
 
-/* Hamburger button - hidden on desktop */
 .mf-hamburger {
   display: none;
   background: none;
@@ -84,11 +86,102 @@ body {
   padding: 4px 8px;
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ===== HOME PAGE — MOBILE FIX ===== */
+
+/* Hero section button */
 @media (max-width: 768px) {
-  .mf-hamburger {
-    display: block;
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
+
+  /* Hero signup button full width on mobile */
+  .btn.btn-primary.fs-5 {
+    width: 80% !important;
+  }
+
+  /* Stats section — stack columns */
+  .row .col-6 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding: 16px !important;
+  }
+
+  /* Awards section image */
+  .row .col-6 img {
+    width: 100% !important;
+  }
+
+  /* Education section */
+  .row .col-6.mb-5 {
+    margin-bottom: 16px !important;
+  }
+
+  /* Pricing section columns */
+  .row .col-4,
+  .row .col-2 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 16px;
+  }
+
+  /* Pricing boxes side by side on mobile */
+  .row .col-6 .row .col {
+    padding: 12px !important;
+  }
+
+  /* About page columns */
+  .row .col-6.mt-5 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Team section */
+  .row .col-6.text-center {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 24px;
+  }
+
+  .row .col-6.text-muted {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Pricing page 3 columns */
+  .row .col-4.text-center {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 32px;
+  }
+
+  /* Brokerage section */
+  .row .col-5 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* headings font size */
+  h1 { font-size: 1.6rem !important; }
+  h2 { font-size: 1.3rem !important; }
+
+  /* OpenAccount button */
+  .container.p-5 {
+    padding: 24px 16px !important;
+  }
+}
+
+/* ===== NAVBAR MOBILE ===== */
+@media (max-width: 768px) {
+  .mf-hamburger { display: block; }
 
   .mf-nav-links {
     display: none;
@@ -104,13 +197,9 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
 
-  .mf-nav-links.open {
-    display: flex;
-  }
+  .mf-nav-links.open { display: flex; }
 
-  .mf-nav-links li {
-    width: 100%;
-  }
+  .mf-nav-links li { width: 100%; }
 
   .mf-nav-links li a {
     display: block;
@@ -120,7 +209,7 @@ body {
   }
 }
 
-/* ===== AUTH PAGES (Login/Signup) ===== */
+/* ===== AUTH PAGES ===== */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -230,6 +319,17 @@ body {
   text-align: left;
 }
 
+.auth-success {
+  background: #f0fff4;
+  color: #276749;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  border: 1px solid #9ae6b4;
+  text-align: left;
+}
+
 .auth-switch {
   font-size: 0.875rem;
   color: #888;
@@ -242,15 +342,31 @@ body {
   font-weight: 600;
 }
 
-.auth-switch a:hover {
-  text-decoration: underline;
-}
+.auth-switch a:hover { text-decoration: underline; }
 
 @media (max-width: 480px) {
-  .auth-box {
-    padding: 32px 20px;
-  }
+  .auth-box { padding: 28px 16px; }
 }
+
+/* ===== SPINNER ===== */
+.btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* ===== FOOTER ===== */
 .mf-footer {
@@ -268,7 +384,6 @@ body {
   gap: 40px;
 }
 
-/* Brand */
 .mf-footer-logo {
   display: flex;
   align-items: center;
@@ -276,9 +391,7 @@ body {
   margin-bottom: 14px;
 }
 
-.mf-footer-logo-icon {
-  font-size: 24px;
-}
+.mf-footer-logo-icon { font-size: 24px; }
 
 .mf-footer-logo-text {
   font-size: 1.3rem;
@@ -325,7 +438,6 @@ body {
   color: #fff;
 }
 
-/* Columns */
 .mf-footer-heading {
   font-size: 0.78rem;
   font-weight: 700;
@@ -348,11 +460,8 @@ body {
   transition: color 0.2s;
 }
 
-.mf-footer-col a:hover {
-  color: #93c5fd;
-}
+.mf-footer-col a:hover { color: #93c5fd; }
 
-/* Bottom */
 .mf-footer-bottom {
   border-top: 1px solid #334155;
   max-width: 1200px;
@@ -369,7 +478,6 @@ body {
   line-height: 1.7;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .mf-footer-top {
     grid-template-columns: 1fr 1fr;
@@ -377,24 +485,13 @@ body {
     padding: 40px 20px 24px;
   }
 
-  .mf-footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .mf-footer-bottom {
-    padding: 20px;
-  }
+  .mf-footer-brand { grid-column: 1 / -1; }
+  .mf-footer-bottom { padding: 20px; }
 }
 
 @media (max-width: 480px) {
-  .mf-footer-top {
-    grid-template-columns: 1fr;
-  }
+  .mf-footer-top { grid-template-columns: 1fr; }
 }
-
-/* ===================================================
-   ADD THIS AT THE BOTTOM OF frontend/src/index.css
-   =================================================== */
 
 /* ===== SUPPORT HERO ===== */
 .support-hero {
@@ -468,11 +565,8 @@ body {
   transition: background 0.2s;
 }
 
-.support-quick-links a:hover {
-  background: rgba(255,255,255,0.28);
-}
+.support-quick-links a:hover { background: rgba(255,255,255,0.28); }
 
-/* Support Hero Right */
 .support-hero-right {
   flex: 1;
   min-width: 220px;
@@ -496,9 +590,7 @@ body {
   transition: background 0.2s;
 }
 
-.support-track-btn:hover {
-  background: #eff6ff;
-}
+.support-track-btn:hover { background: #eff6ff; }
 
 .support-featured h5 {
   font-size: 0.78rem;
@@ -529,7 +621,6 @@ body {
   text-decoration: underline;
 }
 
-/* ===== SUPPORT TICKETS SECTION ===== */
 .support-tickets {
   max-width: 1200px;
   margin: 0 auto;
@@ -599,70 +690,19 @@ body {
   flex-shrink: 0;
 }
 
-.support-topic-card ul li a:hover {
-  color: #1a56db;
-}
+.support-topic-card ul li a:hover { color: #1a56db; }
 
-/* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
   .support-hero {
     padding: 40px 20px;
     flex-direction: column;
   }
 
-  .support-topics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .support-tickets {
-    padding: 32px 16px;
-  }
+  .support-topics-grid { grid-template-columns: 1fr; }
+  .support-tickets { padding: 32px 16px; }
+  .support-hero-left h3 { font-size: 1.5rem; }
 }
 
 @media (max-width: 480px) {
-  .support-topics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .support-hero-left h3 {
-    font-size: 1.5rem;
-  }
-}
-
-/* ===================================================
-   ADD THIS AT THE BOTTOM OF frontend/src/index.css
-   =================================================== */
-
-/* Loading spinner inside button */
-.btn-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  flex-shrink: 0;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Success message */
-.auth-success {
-  background: #f0fff4;
-  color: #276749;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  margin-bottom: 16px;
-  border: 1px solid #9ae6b4;
-  text-align: left;
+  .support-topics-grid { grid-template-columns: 1fr; }
 }
