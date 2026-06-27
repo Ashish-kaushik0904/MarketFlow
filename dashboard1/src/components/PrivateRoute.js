@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+const FRONTEND_URL = "https://market-flow-five.vercel.app";
 
 const PrivateRoute = ({ children }) => {
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     // URL se token aaya hai toh localStorage mein save karo
@@ -14,12 +17,16 @@ const PrivateRoute = ({ children }) => {
       // URL clean karo
       window.history.replaceState({}, document.title, "/");
     }
+
+    setReady(true);
   }, []);
+
+  if (!ready) return null;
 
   const token = localStorage.getItem("token");
 
   if (!token) {
-    document.location.href = "https://market-flow-8fxlw3a4x-ashish-kaushik0904s-projects.vercel.app/login";
+    window.location.href = `${FRONTEND_URL}/login`;
     return null;
   }
 

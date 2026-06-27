@@ -2,32 +2,41 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
+const BACKEND_URL = "https://marketflow-backend-6wob.onrender.com";
+
 function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
+    setSuccess("");
     setLoading(true);
 
     try {
-      const res = await axios.post("https://marketflow-backend-6wob.onrender.com/signup", {
+      const res = await axios.post(`${BACKEND_URL}/signup`, {
         name,
         email,
         password,
       });
 
-      alert(res.data.message);
-      navigate("/login");
+      setSuccess("Account created! Redirecting to login...");
+
+      // Smooth redirect after 1.5 seconds - no alert popup
+      setTimeout(() => {
+        navigate("/login");
+      }, 1500);
+
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
-    } finally {
       setLoading(false);
     }
   };
@@ -37,11 +46,10 @@ function Signup() {
       <div className="auth-box">
         <span className="auth-logo-text">📈 MarketFlow</span>
         <h2>Create your account</h2>
-        <p className="auth-subtitle">
-          Trade smarter. Grow faster.
-        </p>
+        <p className="auth-subtitle">Trade smarter. Grow faster.</p>
 
         {error && <p className="auth-error">{error}</p>}
+        {success && <p className="auth-success">{success}</p>}
 
         <form onSubmit={handleSignup}>
           <div className="form-group">
@@ -52,6 +60,7 @@ function Signup() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              autoComplete="name"
             />
           </div>
 
@@ -63,6 +72,7 @@ function Signup() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="email"
             />
           </div>
 
@@ -70,15 +80,24 @@ function Signup() {
             <label>Password</label>
             <input
               type="password"
-              placeholder="Create a password"
+              placeholder="Create a password (min 6 chars)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              minLength={6}
+              autoComplete="new-password"
             />
           </div>
 
           <button type="submit" className="auth-btn" disabled={loading}>
-            {loading ? "Creating account..." : "Create Account"}
+            {loading ? (
+              <span className="btn-loading">
+                <span className="spinner"></span>
+                {success ? "Redirecting..." : "Creating account..."}
+              </span>
+            ) : (
+              "Create Account"
+            )}
           </button>
         </form>
 

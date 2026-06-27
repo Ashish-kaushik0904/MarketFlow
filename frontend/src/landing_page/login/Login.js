@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Backend URL - one place to change
+const BACKEND_URL = "https://marketflow-backend-6wob.onrender.com";
+const DASHBOARD_URL = "https://marketflow-dashboard-blond.vercel.app";
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +19,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const res = await axios.post("https://marketflow-backend-6wob.onrender.com/login", {
+      const res = await axios.post(`${BACKEND_URL}/login`, {
         email,
         password,
       });
@@ -23,9 +27,9 @@ function Login() {
       const token = res.data.token;
       const user = encodeURIComponent(JSON.stringify(res.data.user));
 
-      window.location.assign(
-        `https://marketflow-dashboard-ashish-kaushik0904s-projects.vercel.app?token=${token}&user=${user}`
-      );
+      // Redirect to dashboard with token
+      window.location.assign(`${DASHBOARD_URL}?token=${token}&user=${user}`);
+
     } catch (err) {
       setError(err.response?.data?.message || "Invalid email or password");
       setLoading(false);
@@ -50,6 +54,7 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              autoComplete="email"
             />
           </div>
 
@@ -61,11 +66,19 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              autoComplete="current-password"
             />
           </div>
 
           <button type="submit" className="auth-btn" disabled={loading}>
-            {loading ? "Logging in..." : "Login"}
+            {loading ? (
+              <span className="btn-loading">
+                <span className="spinner"></span>
+                Logging in...
+              </span>
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
 

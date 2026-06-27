@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+const FRONTEND_URL = "https://market-flow-five.vercel.app";
+
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [darkMode, setDarkMode] = useState(false);
 
-  // Get user from localStorage
   const user = JSON.parse(localStorage.getItem("user")) || { name: "User" };
   const initials = user.name
     .split(" ")
@@ -14,7 +15,6 @@ const Menu = () => {
     .toUpperCase()
     .slice(0, 2);
 
-  // Load dark mode preference on first render
   useEffect(() => {
     const saved = localStorage.getItem("darkMode");
     if (saved === "true") {
@@ -23,7 +23,6 @@ const Menu = () => {
     }
   }, []);
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     const next = !darkMode;
     setDarkMode(next);
@@ -40,7 +39,7 @@ const Menu = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("darkMode");
     document.body.classList.remove("dark");
-    window.location.href = "https://market-flow-8fxlw3a4x-ashish-kaushik0904s-projects.vercel.app/login";
+    window.location.href = `${FRONTEND_URL}/login`;
   };
 
   const menuClass = "menu";
@@ -48,8 +47,6 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-
-      {/* MarketFlow Logo — text only, no image needed */}
       <div className="mf-brand">
         <span className="mf-brand-icon">📈</span>
         <span className="mf-brand-name">MarketFlow</span>
@@ -86,18 +83,15 @@ const Menu = () => {
 
         <hr />
 
-        {/* Dark Mode Toggle */}
         <button className="dark-toggle" onClick={toggleDarkMode} title="Toggle dark mode">
           {darkMode ? "☀️" : "🌙"}
         </button>
 
-        {/* User Profile */}
         <div className="profile">
           <div className="avatar">{initials}</div>
           <p className="username">{user.name.split(" ")[0].toUpperCase()}</p>
         </div>
 
-        {/* Logout */}
         <button onClick={handleLogout} className="logout-btn">
           Logout
         </button>

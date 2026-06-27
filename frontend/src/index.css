@@ -628,3 +628,41 @@ body {
     font-size: 1.5rem;
   }
 }
+
+/* ===================================================
+   ADD THIS AT THE BOTTOM OF frontend/src/index.css
+   =================================================== */
+
+/* Loading spinner inside button */
+.btn-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success message */
+.auth-success {
+  background: #f0fff4;
+  color: #276749;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  border: 1px solid #9ae6b4;
+  text-align: left;
+}
